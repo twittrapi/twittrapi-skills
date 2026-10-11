@@ -1,0 +1,21 @@
+{
+  "name": "twittrapi",
+  "description": "Read public X (Twitter) data through TwittrAPI: auth, endpoints, simple format, pagination, errors and budgeting.",
+  "version": "1.0.0",
+  "author": {
+    "name": "TwittrAPI",
+    "email": "support@twittrapi.com",
+    "url": "https://twittrapi.com"
+  },
+  "homepage": "https://twittrapi.com",
+  "repository": "https://github.com/twittrapi/twittrapi-skills",
+  "license": "MIT",
+  "keywords": [
+    "twitter",
+    "x",
+    "twitter-api",
+    "tweets",
+    "mcp",
+    "skills"
+  ]
+}

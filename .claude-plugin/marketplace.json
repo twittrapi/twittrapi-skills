@@ -1,0 +1,15 @@
+{
+  "name": "twittrapi",
+  "owner": { "name": "TwittrAPI", "email": "support@twittrapi.com" },
+  "metadata": { "description": "TwittrAPI skills for coding agents" },
+  "plugins": [
+    {
+      "name": "twittrapi",
+      "source": "./",
+      "description": "Read public X (Twitter) data through TwittrAPI: auth, endpoints, simple format, pagination, errors and budgeting.",
+      "version": "1.0.0",
+      "license": "MIT",
+      "homepage": "https://twittrapi.com"
+    }
+  ]
+}

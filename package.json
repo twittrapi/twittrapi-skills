@@ -1,0 +1,14 @@
+{
+  "name": "twittrapi-skills",
+  "private": true,
+  "description": "Agent skills for TwittrAPI (validation only; nothing to install)",
+  "license": "MIT",
+  "author": "TwittrAPI",
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/skills.test.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
