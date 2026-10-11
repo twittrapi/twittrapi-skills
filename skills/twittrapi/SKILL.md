@@ -103,7 +103,7 @@ by default (higher tiers can be booked).
 - Every billed response has `X-Remaining-Balance` and `X-Price-Per-Call` headers. Check them and
   stop below the user's threshold.
 - `GET https://api.twittrapi.com/balance` returns the balance and price per call; it is free.
-- Prices are per 1,000 successful calls: $0.08 (Standard), $0.06 (Volume), $0.05 (Scale). Current
+- Prices are per 1,000 successful calls: $0.09 (Standard), $0.075 (Volume), $0.065 (Scale). Current
   values: https://twittrapi.com/pricing.json. Estimate calls x price before large jobs and tell the
   user when a job will cost more than a few dollars.
 
