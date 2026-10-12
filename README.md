@@ -1,4 +1,10 @@
+<p align="center">
+  <a href="https://twittrapi.com"><img src=".github/banner.png" alt="twittrapi-skills: agent skill that teaches coding agents the TwittrAPI Twitter/X data API" width="100%"></a>
+</p>
+
 # TwittrAPI agent skills
+
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 Agent skills for [TwittrAPI](https://twittrapi.com), the pay-per-call API for public X (Twitter)
 data. The `twittrapi` skill teaches Claude Code, Codex, Cursor and other coding agents how to use
@@ -8,6 +14,10 @@ docs ([llms-full.txt](https://twittrapi.com/llms-full.txt), [openapi.json](https
 instead of copying them, so the agent loads details only when it needs them.
 
 Not affiliated with X Corp.
+
+> **Get an API key:** [twittrapi.com/start](https://twittrapi.com/start?utm_source=github&utm_medium=readme&utm_campaign=twittrapi-skills) · [Pricing](https://twittrapi.com/pricing?utm_source=github&utm_medium=readme&utm_campaign=twittrapi-skills) · [Docs](https://twittrapi.com/docs?utm_source=github&utm_medium=readme&utm_campaign=twittrapi-skills) · [Status](https://twittrapi.com/status) · also available on [RapidAPI](https://rapidapi.com/viperscores-viperscores-default/api/twitter-aio)
+
+**SDKs and integrations:** [Python](https://github.com/twittrapi/twittrapi-python) · [Node.js](https://github.com/twittrapi/twittrapi-node) · [Go](https://github.com/twittrapi/twittrapi-go) · [MCP server](https://github.com/twittrapi/twittrapi-mcp) · [n8n](https://github.com/twittrapi/n8n-nodes-twittrapi) · [Make](https://github.com/twittrapi/twittrapi-make) · [Apify](https://github.com/twittrapi/twittrapi-apify) · [LangChain](https://github.com/twittrapi/langchain-twittrapi) · [LlamaIndex](https://github.com/twittrapi/llama-index-tools-twittrapi) · [Examples](https://github.com/twittrapi/twittrapi-examples)
 
 ## Install
 
