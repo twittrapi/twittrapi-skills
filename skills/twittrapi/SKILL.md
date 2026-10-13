@@ -1,6 +1,6 @@
 ---
 name: twittrapi
-description: Read public X (Twitter) data through the TwittrAPI REST API or its MCP server - user profiles, tweets, replies, followers, search with X operators, lists, communities and trends. Use when a task needs tweets, X accounts, follower lists, X search results or trending topics, or when writing code against api.twittrapi.com. Covers auth (X-API-KEY), the compact simple response format, cursor pagination, errors and retries, and keeping spend inside a budget.
+description: Read public X (Twitter) data through the TwittrAPI REST API or its MCP server - user profiles, tweets, replies, followers, search with X operators, lists, communities and trends. Use when a task needs tweets, X accounts, follower lists, X search results or trending topics, or when writing code against api.twittrapi.com, or when the user wants a TwittrAPI account, API key or the MCP connector set up. Covers auth (X-API-KEY), the compact simple response format, cursor pagination, errors and retries, and keeping spend inside a budget.
 license: MIT
 metadata:
   homepage: https://twittrapi.com
@@ -31,7 +31,7 @@ The most used endpoints are in [references/endpoints.md](references/endpoints.md
    use them. They handle auth, pagination headers and the simple format. Skip to section 5.
 2. **No MCP, but you can run code or curl**: call the REST API (sections 2-5).
 3. **The user wants MCP set up**:
-   - Hosted, nothing to install: `https://mcp.twittrapi.com/mcp` (Streamable HTTP; OAuth sign-in, or
+   - Hosted, nothing to install: `https://mcp.twittrapi.com/mcp`, with `/mcp` at the end (Streamable HTTP; OAuth sign-in, or
      `Authorization: Bearer <key>` / `X-API-KEY` header). Claude Code:
      `claude mcp add --transport http twittrapi https://mcp.twittrapi.com/mcp`.
      Setup for Claude.ai, ChatGPT, Cursor and VS Code: https://twittrapi.com/docs/hosted-mcp
@@ -41,8 +41,7 @@ The most used endpoints are in [references/endpoints.md](references/endpoints.md
 
 - Send the key in the `X-API-KEY` header on every request. Read it from the environment variable
   `TWITTRAPI_API_KEY`. Never print it, log it, put it in a URL or commit it.
-- No key yet: a person creates an account at https://twittrapi.com/start (small free trial credit
-  after email confirmation) and copies the key from the dashboard. You cannot sign up for them.
+- No key yet: help the user get one (section 2a). Never invent or reuse someone else's key.
 - RapidAPI keys also work: same paths on `https://twitter-aio.p.rapidapi.com` with headers
   `x-rapidapi-key: <key>` and `x-rapidapi-host: twitter-aio.p.rapidapi.com`.
 
@@ -52,6 +51,31 @@ curl -s 'https://api.twittrapi.com/user/by/username/XDevelopers?format=simple' \
 ```
 
 `scripts/twittrapi.sh` wraps this: `scripts/twittrapi.sh /search searchItem='from:XDevelopers' category=Latest`.
+
+## 2a. Setting up an account
+
+Ask the user which way they want; do not start a sign-up on your own.
+
+1. **They sign up themselves** (always works): https://twittrapi.com/start. Small free trial
+   credit after email confirmation. They copy the key from the dashboard (or create a separate
+   agent key with its own budget under **API keys**) and put it in `TWITTRAPI_API_KEY`.
+2. **You ask, they approve by email** (device flow, needs their email address and their OK):
+   - `POST https://app.twittrapi.com/api/agent/signup` with JSON
+     `{"email": "<their email>", "agent_name": "<your name>", "purpose": "<what the key is for>"}`.
+   - Tell them: approve via the email from TwittrAPI, or enter `user_code` at `verification_uri`.
+     They log in or create the account there and choose a budget.
+   - Poll `POST https://app.twittrapi.com/api/agent/token` with form field `device_code=<device_code>`
+     every `interval` seconds: `authorization_pending` keep polling, `slow_down` add 5 s,
+     `access_denied` / `expired_token` / `invalid_grant` stop. A 200 has `api_key`, **once**:
+     store it where the user says (environment, secret store), never in a committed file.
+   - If the sign-up answers `not_found` ("not enabled"), use option 1.
+   - The key is limited to the budget they chose and cannot use `/client/*` or `/premium/*`.
+3. **Connect by MCP instead of a key**: for Claude.ai, ChatGPT and other apps with OAuth, add the
+   connector URL `https://mcp.twittrapi.com/mcp` (**with `/mcp` at the end**; the bare host gives
+   404). The app opens a TwittrAPI login and the user clicks **Allow access**. New users can
+   create the account on that login page.
+
+Full details: https://twittrapi.com/docs/for-agents#getting-a-key
 
 ## 3. Always use the simple format
 
