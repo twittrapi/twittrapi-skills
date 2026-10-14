@@ -12,7 +12,7 @@ https://twittrapi.com/llms-full.txt. The MCP tool with the same function is in b
 | `/user/by/username/{username}` | Profile by handle (no `@`) [`get_user_by_username`] | no |
 | `/user/{userId}` | Profile by numeric ID [`get_user_by_id`] | no |
 | `/username/to/id/{username}` | Handle to numeric ID [`username_to_id`] | no |
-| `/user/users/by/ids?ids=1,2,3` | Up to 100 profiles at once [`users_by_ids`] | no |
+| `/user/users/by/ids?ids=1,2,3` | Up to 500 profiles at once [`users_by_ids`] | no |
 | `/user/{userId}/tweets` | A user's tweets [`get_user_tweets`] | yes |
 | `/user/{userId}/tweetsAndReplies` | Tweets and replies [`get_user_tweets_and_replies`] | yes |
 | `/user/{userId}/media` | Tweets with photos or videos [`get_user_media`] | yes |
