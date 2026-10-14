@@ -67,7 +67,3 @@ The tweet ID is the number at the end of a tweet URL: `https://x.com/<user>/stat
 | Path | What |
 | --- | --- |
 | `/balance` | Balance and price per call. Free. |
-
-Account actions (`/client/*`: post, like, follow, DM) act on the user's own X account with their
-session cookie and proxy. Only use them when the user explicitly set that up; see
-https://twittrapi.com/docs/account-actions.

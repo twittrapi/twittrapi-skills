@@ -69,7 +69,7 @@ Ask the user which way they want; do not start a sign-up on your own.
      `access_denied` / `expired_token` / `invalid_grant` stop. A 200 has `api_key`, **once**:
      store it where the user says (environment, secret store), never in a committed file.
    - If the sign-up answers `not_found` ("not enabled"), use option 1.
-   - The key is limited to the budget they chose and cannot use `/client/*` or `/premium/*`.
+   - The key is limited to the budget they chose and to the read endpoints.
 3. **Connect by MCP instead of a key**: for Claude.ai, ChatGPT and other apps with OAuth, add the
    connector URL `https://mcp.twittrapi.com/mcp` (**with `/mcp` at the end**; the bare host gives
    404). The app opens a TwittrAPI login and the user clicks **Allow access**. New users can
@@ -133,8 +133,7 @@ by default (higher tiers can be booked).
 
 ## 7. Rules
 
-- Read-only public data. Account actions under `/client/*` (post, like, follow, DM) act on the
-  user's own X account with their session cookie; use them only if the user explicitly set that up.
+- Read-only public data.
 - Protected accounts and private data are not available. Respect X's rules and
   https://twittrapi.com/aup. TwittrAPI is not affiliated with X Corp.
 - Support: support@twittrapi.com. Status: https://twittrapi.com/status
