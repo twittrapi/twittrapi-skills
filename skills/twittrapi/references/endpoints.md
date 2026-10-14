@@ -1,6 +1,6 @@
 # TwittrAPI read endpoints (most used)
 
-Base URL `https://api.twittrapi.com`, header `X-API-KEY`, add `format=simple`. All `GET`.
+Base URL `https://api.twittrapi.com`, header `X-API-KEY`, add `format=simple`. All `GET` except likers.
 Paginated endpoints take `count` (default 20) and `cursor` and return `nextCursor` / `hasNextPage`.
 Every endpoint with all parameters and error codes: https://twittrapi.com/openapi.json or
 https://twittrapi.com/llms-full.txt. The MCP tool with the same function is in brackets.
@@ -39,7 +39,7 @@ saves the lookup call when you only have the handle.
 | --- | --- | --- |
 | `/tweet/{tweetId}` | A tweet and its reply thread [`get_tweet`] | yes (replies) |
 | `/tweet/{tweetId}/retweets` | Users who retweeted [`get_tweet_retweets`] | yes |
-| `/tweet/{tweetId}/favorites` | Users who liked (X often returns this empty) [`get_tweet_favorites`] | yes |
+| `/tweet/{tweetId}/favorites` | Users who liked. `POST` with JSON `cookie` (the author's X session) and `proxy`; works only for your own tweets | yes |
 | `/tweet/{tweetId}/quotes` | Tweets quoting it [`get_tweet_quotes`] | yes |
 
 The tweet ID is the number at the end of a tweet URL: `https://x.com/<user>/status/<tweetId>`.
