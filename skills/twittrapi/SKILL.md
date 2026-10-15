@@ -42,8 +42,10 @@ The most used endpoints are in [references/endpoints.md](references/endpoints.md
 - Send the key in the `X-API-KEY` header on every request. Read it from the environment variable
   `TWITTRAPI_API_KEY`. Never print it, log it, put it in a URL or commit it.
 - No key yet: help the user get one (section 2a). Never invent or reuse someone else's key.
-- RapidAPI keys also work: same paths on `https://twitter-aio.p.rapidapi.com` with headers
-  `x-rapidapi-key: <key>` and `x-rapidapi-host: twitter-aio.p.rapidapi.com`.
+- RapidAPI keys also work: same paths on `https://<host>` with headers `x-rapidapi-key: <key>`
+  and `x-rapidapi-host: <host>`. The host depends on the RapidAPI listing (default
+  `twitter-aio.p.rapidapi.com`); use the one shown on the user's listing. The SDKs read it from
+  `RAPIDAPI_HOST`.
 
 ```bash
 curl -s 'https://api.twittrapi.com/user/by/username/XDevelopers?format=simple' \
