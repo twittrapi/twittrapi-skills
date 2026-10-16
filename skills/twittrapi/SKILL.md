@@ -3,6 +3,13 @@ name: twittrapi
 description: Read public X (Twitter) data through the TwittrAPI REST API or its MCP server - user profiles, tweets, replies, followers, search with X operators, lists, communities and trends. Use when a task needs tweets, X accounts, follower lists, X search results or trending topics, or when writing code against api.twittrapi.com, or when the user wants a TwittrAPI account, API key or the MCP connector set up. Covers auth (X-API-KEY), the compact simple response format, cursor pagination, errors and retries, and keeping spend inside a budget.
 license: MIT
 metadata:
+  openclaw:
+    requires:
+      env:
+        - TWITTRAPI_API_KEY
+      bins:
+        - curl
+    primaryEnv: TWITTRAPI_API_KEY
   homepage: https://twittrapi.com
   docs: https://twittrapi.com/llms-full.txt
   openapi: https://twittrapi.com/openapi.json
